@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--  Abstract bases -->
+
+	<ThingDef Name="CoffeeBeanBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<tickerType>Rare</tickerType>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<category>Item</category>
+		<thingCategories>
+			<li>PlantMatter</li>
+		</thingCategories>
+		<resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<useHitPoints>true</useHitPoints>
+		<selectable>true</selectable>
+		<altitudeLayer>Item</altitudeLayer>
+		<stackLimit>75</stackLimit>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>10</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_FoodPoisoningChance" />
+		</comps>
+		<ingestible>
+			<preferability>RawBad</preferability>
+			<tastesRaw>true</tastesRaw>
+			<foodType>VegetableOrFruit</foodType>
+			<nutrition>0.01</nutrition>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>RawVegetable_Eat</ingestSound>
+		</ingestible>
+		<alwaysHaulable>true</alwaysHaulable>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<rotatable>false</rotatable>
+		<pathCost>15</pathCost>
+	</ThingDef>
+
+	<!-- Coffee beans -->
+
+	<ThingDef ParentName="CoffeeBeanBase">
+		<defName>RawCoffeeBeans</defName>
+		<label>raw coffee beans</label>
+		<description>Raw coffee beans, used to make primitive coffee. Can be cooked or treated in different ways to prepare other types of coffee.</description>
+		<graphicData>
+			<texPath>Things/Item/Beans/RawCoffeeBeans</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.5</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>60</daysToRotStart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CoffeeBeanBase">
+		<defName>CookedCoffeeBeans</defName>
+		<label>cooked coffee beans</label>
+		<description>Cooked coffee beans, rich in flavour and aroma.</description>
+		<graphicData>
+			<texPath>Things/Item/Beans/CookedCoffeeBeans</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.8</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>15</daysToRotStart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CoffeeBeanBase">
+		<defName>EnergizedCoffeeBeans</defName>
+		<label>psychedelic coffee beans</label>
+		<description>Coffee beans that were cooked with psychoid leaves. They are bursting with caffeine and contain powerful psychite agents.</description>
+		<graphicData>
+			<texPath>Things/Item/Beans/EnergizedCoffeeBeans</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.2</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>15</daysToRotStart>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CoffeeBeanBase">
+		<defName>DecafCoffeeBeans</defName>
+		<label>decaf coffee beans</label>
+		<description>Coffee beans that have been decaffeinated. They contain only minute traces of caffeine.</description>
+		<graphicData>
+			<texPath>Things/Item/Beans/DecafCoffeeBeans</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.2</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>15</daysToRotStart>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

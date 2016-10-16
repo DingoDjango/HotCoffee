@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	<!-- Building base -->
+
+	<ThingDef Name="CoffeeMachineBase" Abstract="True">
+		<category>Building</category>
+		<thingClass>Building_WorkTable_HeatPush</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<AltitudeLayer>Building</AltitudeLayer>
+		<constructEffect>ConstructMetal</constructEffect>
+		<repairEffect>Repair</repairEffect>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>BuildingRubble</filthLeaving>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<MaxHitPoints>180</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+			<heatPerTickWhileWorking>0.25</heatPerTickWhileWorking>
+		</building>
+		<Size>(1,1)</Size>
+		<DesignationCategory>Production</DesignationCategory>
+		<Passability>PassThroughOnly</Passability>
+		<pathCost>70</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+	</ThingDef>
+
+	<!-- Coffee machines -->
+
+	<ThingDef ParentName="CoffeeMachineBase">
+		<defName>ElectricCoffeeMachine</defName>
+		<label>electric coffee machine</label>
+		<Description>An electrically-powered coffee machine.</Description>
+		<graphicData>
+			<texPath>Things/Buildings/Production/ElectricCoffeeMachine</texPath>
+		</graphicData>
+		<CostList>
+			<Steel>40</Steel>
+			<Component>2</Component>
+		</CostList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<startElectricalFires>true</startElectricalFires>
+				<basePowerConsumption>200</basePowerConsumption>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>SimpleCoffee</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef ParentName="CoffeeMachineBase">
+		<defName>ElectricDecaffeinationStation</defName>
+		<label>electric decaffeination station</label>
+		<Description>An electrically-powered decaffeination station.</Description>
+		<graphicData>
+			<texPath>Things/Buildings/Production/ElectricDecaffeinationStation</texPath>
+		</graphicData>
+		<CostList>
+			<Steel>75</Steel>
+			<Component>5</Component>
+		</CostList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<startElectricalFires>true</startElectricalFires>
+				<basePowerConsumption>200</basePowerConsumption>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>SweetDecafCoffee</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+</ThingDefs>
