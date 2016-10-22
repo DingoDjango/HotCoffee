@@ -19,7 +19,7 @@
 			<DeteriorationRate>100</DeteriorationRate>
 		</statBases>
 		<altitudeLayer>Item</altitudeLayer>
-		<stackLimit>10</stackLimit>
+		<stackLimit>50</stackLimit>
 		<socialPropernessMatters>true</socialPropernessMatters>
 		<thingCategories>
 			<li>Drugs</li>
